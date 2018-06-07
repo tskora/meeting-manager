@@ -10,6 +10,7 @@
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
+                <td><button @click="deleteMeeting()">Usuń spotkanie</button></td>
             </tr>
         </tbody>
     </table>
@@ -17,6 +18,17 @@
 
 <script>
 export default {
-    props: ['meetings']
+    props: ['meetings'],
+    data() {
+        return {
+            deletedMeeting: {}
+        }
+    },
+    methods: {
+        deleteMeeting() {
+            this.$emit('deleted', this.deletedMeeting);
+            this.deletedMeeting = {};
+        }
+    }
 }
 </script>

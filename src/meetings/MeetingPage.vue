@@ -2,7 +2,7 @@
     <div>
        <h2>Zajęcia</h2>
        <new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
-       <meetings-list :meetings="meetings"></meetings-list>
+       <meetings-list :meetings="meetings" @deleted="deleteMeeting($event)"></meetings-list>
     </div>
 </template>
 
@@ -20,6 +20,9 @@ export default {
   methods: {
       addNewMeeting(meeting) {
           this.meetings.push(meeting);
+      },
+      deleteMeeting(meeting) {
+          this.meetings.pop(meeting);
       }
   }
 }
