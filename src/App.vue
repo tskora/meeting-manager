@@ -8,6 +8,7 @@
     </div>
     <div v-else>
       <logged :authenticatedUsername="authenticatedUsername" @login='logMeOut()'></logged>
+      <meeting-page></meeting-page>
     </div>
 
   </div>
@@ -17,10 +18,16 @@
 import "milligram";
 import LoginForm from "./LoginForm";
 import Logged from "./Logged";
+import MeetingPage from "./meetings/MeetingPage";
+import MeetingsList from "./meetings/MeetingsList";
+import NewMeetingForm from "./meetings/NewMeetingForm";
 export default {
   components: {
     LoginForm,
-    Logged
+    Logged,
+    MeetingPage,
+    MeetingsList,
+    NewMeetingForm
   },
   name: 'app',
   data () {
