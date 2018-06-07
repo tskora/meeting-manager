@@ -4,13 +4,16 @@
             <tr>
                 <th>Nazwa spotkania</th>
                 <th>Opis</th>
+                <th>Uczestnicy</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
+                <td></td>
                 <td><button @click="deleteMeeting()">Usuń spotkanie</button></td>
+                <td><button>Zapisz się</button></td>
             </tr>
         </tbody>
     </table>
