@@ -7,8 +7,7 @@
       <login-form @login="logMeIn($event)"></login-form>
     </div>
     <div v-else>
-      <h2>Witaj {{ authenticatedUsername }}</h2>
-      <button @click="logMeOut()">Wyloguj</button>
+      <logged :authenticatedUsername="authenticatedUsername" @login='logMeOut()'></logged>
     </div>
 
   </div>
@@ -17,8 +16,12 @@
 <script>
 import "milligram";
 import LoginForm from "./LoginForm";
+import Logged from "./Logged";
 export default {
-  components: {LoginForm},
+  components: {
+    LoginForm,
+    Logged
+  },
   name: 'app',
   data () {
     return {
